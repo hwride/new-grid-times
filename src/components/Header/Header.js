@@ -86,7 +86,7 @@ const Row = styled(MaxWidthWrapper)`
 
 const DesktopRow = styled(MaxWidthWrapper)`
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
 `;
 
@@ -118,13 +118,6 @@ const MobileMainHeader = styled(MainHeader)`
   }
 `;
 
-const SubscribeLink = styled.a`
-  font-style: italic;
-  text-decoration: underline;
-  grid-row: 3;
-  align-self: start;
-`;
-
 const EndDesktopActions = styled.div`
   justify-self: end;
 `;
@@ -139,5 +132,12 @@ const DesktopActions = styled.div`
 const SubscribeButton = styled(Button)`
   grid-row: 2;
 `
+
+const SubscribeLink = styled.a`
+  font-style: italic;
+  text-decoration: underline;
+  grid-row: 3;
+  align-self: start;
+`;
 
 export default Header;
