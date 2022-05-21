@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header>
       <DesktopSuperHeader>
-        <Row>
+        <DesktopRow>
           <ActionGroup>
             <button>
               <Search size={24} />
@@ -24,16 +24,13 @@ const Header = () => {
           <MainHeader>
             <Logo />
           </MainHeader>
-          <ActionGroup>
-            <UserButton>
-              <User size={24} />
-            </UserButton>
-          </ActionGroup>
-          <DesktopActions>
-            <Button>Subscribe</Button>
-            <SubscribeLink href='#'>Already a subscriber?</SubscribeLink>
-          </DesktopActions>
-        </Row>
+          <EndDesktopActions>
+            <DesktopActions>
+              <Button>Subscribe</Button>
+              <SubscribeLink href='#'>Already a subscriber?</SubscribeLink>
+            </DesktopActions>
+          </EndDesktopActions>
+        </DesktopRow>
       </DesktopSuperHeader>
 
       <MobileSuperHeader>
@@ -47,9 +44,9 @@ const Header = () => {
             </button>
           </ActionGroup>
           <ActionGroup>
-            <UserButton>
+            <button>
               <User size={24} />
-            </UserButton>
+            </button>
           </ActionGroup>
         </Row>
       </MobileSuperHeader>
@@ -86,6 +83,12 @@ const Row = styled(MaxWidthWrapper)`
   justify-content: space-between;
 `;
 
+const DesktopRow = styled(MaxWidthWrapper)`
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+`;
+
 const ActionGroup = styled.div`
   display: flex;
   gap: 24px;
@@ -113,15 +116,13 @@ const MobileMainHeader = styled(MainHeader)`
   }
 `;
 
-const UserButton = styled.button`
-  @media ${QUERIES.laptopAndUp} {
-    display: none;
-  }
-`;
-
 const SubscribeLink = styled.a`
   font-style: italic;
   text-decoration: underline;
+`;
+
+const EndDesktopActions = styled.div`
+  justify-self: end;
 `;
 
 const DesktopActions = styled.div`
