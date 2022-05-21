@@ -25,10 +25,14 @@ const Header = () => {
             <Logo />
           </DesktopMainHeader>
           <ActionGroup>
-            <button>
+            <UserButton>
               <User size={24} />
-            </button>
+            </UserButton>
           </ActionGroup>
+          <DesktopActions>
+            <Button>Subscribe</Button>
+            <SubscribeLink href='#'>Already a subscriber?</SubscribeLink>
+          </DesktopActions>
         </Row>
       </SuperHeader>
       <MobileMainHeader>
@@ -83,6 +87,29 @@ const MobileMainHeader = styled(MainHeader)`
 
 const DesktopMainHeader = styled(MainHeader)`
   display: none;
+  
+  @media ${QUERIES.laptopAndUp} {
+    display: flex;
+  }
+`;
+
+const UserButton = styled.button`
+  @media ${QUERIES.laptopAndUp} {
+    display: none;
+  }
+`;
+
+const SubscribeLink = styled.a`
+  font-style: italic;
+  text-decoration: underline;
+`;
+
+const DesktopActions = styled.div`
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   
   @media ${QUERIES.laptopAndUp} {
     display: flex;
