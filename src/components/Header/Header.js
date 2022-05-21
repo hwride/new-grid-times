@@ -11,7 +11,7 @@ import Button from '../Button';
 const Header = () => {
   return (
     <header>
-      <SuperHeader>
+      <DesktopSuperHeader>
         <Row>
           <ActionGroup>
             <button>
@@ -21,9 +21,9 @@ const Header = () => {
               <Menu size={24} />
             </button>
           </ActionGroup>
-          <DesktopMainHeader>
+          <MainHeader>
             <Logo />
-          </DesktopMainHeader>
+          </MainHeader>
           <ActionGroup>
             <UserButton>
               <User size={24} />
@@ -34,7 +34,25 @@ const Header = () => {
             <SubscribeLink href='#'>Already a subscriber?</SubscribeLink>
           </DesktopActions>
         </Row>
-      </SuperHeader>
+      </DesktopSuperHeader>
+
+      <MobileSuperHeader>
+        <Row>
+          <ActionGroup>
+            <button>
+              <Search size={24} />
+            </button>
+            <button>
+              <Menu size={24} />
+            </button>
+          </ActionGroup>
+          <ActionGroup>
+            <UserButton>
+              <User size={24} />
+            </UserButton>
+          </ActionGroup>
+        </Row>
+      </MobileSuperHeader>
       <MobileMainHeader>
         <Logo />
       </MobileMainHeader>
@@ -46,10 +64,20 @@ const SuperHeader = styled.div`
   padding: 16px 0;
   background: var(--color-gray-900);
   color: white;
+`;
 
+const DesktopSuperHeader = styled(SuperHeader)`
+  display: none;
   @media ${QUERIES.laptopAndUp} {
+    display: block;
     background: none;
     color: var(--color-gray-900);
+  }
+`;
+
+const MobileSuperHeader = styled(SuperHeader)`
+  @media ${QUERIES.laptopAndUp} {
+    display: none;
   }
 `;
 
@@ -85,14 +113,6 @@ const MobileMainHeader = styled(MainHeader)`
   }
 `;
 
-const DesktopMainHeader = styled(MainHeader)`
-  display: none;
-  
-  @media ${QUERIES.laptopAndUp} {
-    display: flex;
-  }
-`;
-
 const UserButton = styled.button`
   @media ${QUERIES.laptopAndUp} {
     display: none;
@@ -105,15 +125,11 @@ const SubscribeLink = styled.a`
 `;
 
 const DesktopActions = styled.div`
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  
-  @media ${QUERIES.laptopAndUp} {
-    display: flex;
-  }
 `;
 
 export default Header;
