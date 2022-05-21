@@ -22,11 +22,11 @@ const Wrapper = styled.div`
 
 const Link = styled.a`
   font-family: var(--font-family-logo);
-  font-size: 3rem;
-  
-  @media ${QUERIES.tabletAndUp} {
-    font-size: 4rem;
-  }
+  font-size: clamp(
+    3rem,
+    3vw + 2rem,
+    4rem
+  );
 `;
 
 const TodaysDate = styled.p`
