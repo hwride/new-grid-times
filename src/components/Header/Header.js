@@ -26,7 +26,7 @@ const Header = () => {
           </MainHeader>
           <EndDesktopActions>
             <DesktopActions>
-              <Button>Subscribe</Button>
+              <SubscribeButton>Subscribe</SubscribeButton>
               <SubscribeLink href='#'>Already a subscriber?</SubscribeLink>
             </DesktopActions>
           </EndDesktopActions>
@@ -69,6 +69,7 @@ const DesktopSuperHeader = styled(SuperHeader)`
     display: block;
     background: none;
     color: var(--color-gray-900);
+    margin-bottom: 67px;
   }
 `;
 
@@ -106,11 +107,12 @@ const MainHeader = styled(MaxWidthWrapper)`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 32px;
-  margin-bottom: 48px;
 `;
 
 const MobileMainHeader = styled(MainHeader)`
+  margin-top: 32px;
+  margin-bottom: 48px;
+
   @media ${QUERIES.laptopAndUp} {
     display: none;
   }
@@ -119,6 +121,8 @@ const MobileMainHeader = styled(MainHeader)`
 const SubscribeLink = styled.a`
   font-style: italic;
   text-decoration: underline;
+  grid-row: 3;
+  align-self: start;
 `;
 
 const EndDesktopActions = styled.div`
@@ -126,11 +130,14 @@ const EndDesktopActions = styled.div`
 `;
 
 const DesktopActions = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: center;
   gap: 8px;
 `;
+
+const SubscribeButton = styled(Button)`
+  grid-row: 2;
+`
 
 export default Header;
