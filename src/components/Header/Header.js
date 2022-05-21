@@ -21,6 +21,9 @@ const Header = () => {
               <Menu size={24} />
             </button>
           </ActionGroup>
+          <DesktopMainHeader>
+            <Logo />
+          </DesktopMainHeader>
           <ActionGroup>
             <button>
               <User size={24} />
@@ -28,9 +31,9 @@ const Header = () => {
           </ActionGroup>
         </Row>
       </SuperHeader>
-      <MainHeader>
+      <MobileMainHeader>
         <Logo />
-      </MainHeader>
+      </MobileMainHeader>
     </header>
   );
 };
@@ -39,6 +42,11 @@ const SuperHeader = styled.div`
   padding: 16px 0;
   background: var(--color-gray-900);
   color: white;
+
+  @media ${QUERIES.laptopAndUp} {
+    background: none;
+    color: var(--color-gray-900);
+  }
 `;
 
 const Row = styled(MaxWidthWrapper)`
@@ -65,6 +73,20 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
+`;
+
+const MobileMainHeader = styled(MainHeader)`
+  @media ${QUERIES.laptopAndUp} {
+    display: none;
+  }
+`;
+
+const DesktopMainHeader = styled(MainHeader)`
+  display: none;
+  
+  @media ${QUERIES.laptopAndUp} {
+    display: flex;
+  }
 `;
 
 export default Header;
