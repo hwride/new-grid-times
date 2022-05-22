@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import format from 'date-fns/format';
-import { QUERIES } from '../../constants'
 
 const Logo = (props) => {
   return (
