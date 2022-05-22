@@ -34,12 +34,12 @@ const Wrapper = styled.article`
   grid-template-columns: 120px 1fr;
   color: var(--color-gray-900);
   
-  @media ${QUERIES.tabletAndUp} {
-  grid-template-columns: revert;
-  grid-template-areas:
-    'image'
-    'heading'
-    'abstract';
+  @media ${QUERIES.tabletOnly} {
+    grid-template-columns: revert;
+    grid-template-areas:
+      'image'
+      'heading'
+      'abstract';
   }
 `;
 
