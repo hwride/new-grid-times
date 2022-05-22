@@ -18,6 +18,9 @@ const OpinionStory = ({ id, title, author, avatar }) => {
 
 const Link = styled.a`
   padding: 16px 0 16px 0;
+  &:first-of-type {
+    padding-top: 0;
+  }
   &:not(:last-of-type) {
     border-bottom: 1px solid var(--color-gray-300);
   }
