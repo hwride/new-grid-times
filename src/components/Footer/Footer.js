@@ -179,6 +179,15 @@ const MainNavArea = styled.div`
   gap: 32px;
   padding: 32px 0 48px;
   text-align: center;
+
+  @media ${QUERIES.tabletAndUp} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    > * {
+      width: 220px;
+      text-align: left;
+    }
+  }
 `;
 
 const MainNavHeading = styled.h2`
