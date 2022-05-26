@@ -188,6 +188,11 @@ const MainNavArea = styled.div`
       text-align: left;
     }
   }
+
+  @media ${QUERIES.laptopAndUp} {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 const MainNavHeading = styled.h2`
